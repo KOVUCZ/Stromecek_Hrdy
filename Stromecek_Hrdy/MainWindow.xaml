@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Stromecek_Hrdy"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" SizeChanged="Window_SizeChanged" Loaded="Window_Loaded">
     <Grid Background="Black">
         <Grid.RowDefinitions>
             <RowDefinition Height="20px"/>
@@ -17,7 +17,7 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="20px"/>
         </Grid.ColumnDefinitions>
-        <Canvas Grid.Column="1" Grid.Row="1" Background="Blue"/>
+        <Canvas x:Name="CanvasScene" Grid.Column="1" Grid.Row="1" Background="Blue"/>
 
     </Grid>
 </Window>
