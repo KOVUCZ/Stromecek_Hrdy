@@ -50,18 +50,32 @@ namespace Stromecek_Hrdy
         {
             
             Polygon polygon = new Polygon();
+            var height = (CanvasScene.ActualHeight / 5) * 4;
+            var width = height * 0.75;
             polygon.Fill = Brushes.LightGreen;
-            polygon.Points.Add(new Point(50, 0));
-            polygon.Points.Add(new Point(20, 16));
-            polygon.Points.Add(new Point(69, 48));
-            Canvas.SetLeft(polygon, 0);
-            Canvas.SetBottom(polygon, 0);
+            polygon.Points.Add(new Point(0, height));
+            polygon.Points.Add(new Point(width, height));
+            polygon.Points.Add(new Point(width / 2, 0));
+            Canvas.SetLeft(polygon, (CanvasScene.ActualWidth - width) / 2);
+            Canvas.SetBottom(polygon, CanvasScene.ActualHeight / 10);
             CanvasScene.Children.Add(polygon);
         }
 
         private void DrawStar()
         {
-           
+            Polygon star = new Polygon();
+            var size = CanvasScene.ActualHeight * 0.05;
+            var count = 5;
+            var angle = 2*Math.PI / count;
+            for(int i = 0; i < count; i++)
+            {
+                star.Points.Add(new Point(Math.Cos(angle * i) * size, Math.Sin(angle * i) * size));
+                star.Points.Add(new Point(Math.Cos(angle * i) + (angle * 0.5) * (size * 2), Math.Sin(angle * i) + angle * 0.5 * size));
+            }
+            star.Fill = Brushes.Yellow;
+            Canvas.SetLeft(star, 0);
+            Canvas.SetTop(star, 0);
+           CanvasScene.Children.Add(star);
         }
 
         private void DrawDecorations()
